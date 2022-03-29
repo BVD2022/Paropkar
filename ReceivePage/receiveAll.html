@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Receive page</title>
+</head>
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Alata&family=Cookie&family=Flamenco&family=League+Spartan:wght@200&family=Lobster&family=Merriweather:ital,wght@1,300&family=Montserrat&family=Niconne&family=Open+Sans&family=Overpass:wght@100&family=PT+Sans&family=PT+Sans+Narrow&family=Poppins&display=swap');
+    *{
+        font-family: 'Poppins', sans-serif;
+        margin: 0; 
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+    }
+    html{
+        font-size: 75%;
+        overflow-x: hidden;
+    }
+    /* styling for navbar begins here */
+    header{
+        width: 100%;
+        height: 50.2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: fixed;
+        top: 0; left: 0;
+        z-index: 1000;
+        padding:  2.5rem .8rem;
+        background: #fff;
+        /* font-weight: bold; */
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    }
+    header .logo{
+        font-size: 2.5rem;
+        color: #222;
+    }
+    header .logo img{
+    width: 100px;
+    height: 70px;
+    padding-top: 12px;
+    }
+    header .navbar a{
+        font-size: 1.5rem;
+        padding: .4rem .5rem;
+        border-radius: .5rem;
+        color: #222;
+        position: relative;
+    }
+    header .navbar a::after{
+        content: "";
+        position: absolute;
+        bottom: 0px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        transition: .3s;
+        background-color: #222;
+    }
+    header .navbar a.active::after,
+    header .navbar a:hover::after{
+        width: 100%;
+    }
+    header .fixed a{
+        font-size: 1.7rem;
+        margin-left: 1rem;
+        padding: .5rem .8rem;
+        border-radius: 50%;
+        color: #222;
+        background: #fff;
+        box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                    10px 10px 15px rgba(0, 0, 0, 0.3);
+    } 
+    header .fixed a:hover{
+        box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                    10px 10px 15px rgba(0, 0, 0, 0.3),
+                    inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+                    inset 10px 10px 15px rgba(0, 0, 0, 0.3);
+    } 
+    header input.menubar{
+        display: none;
+    }
+    header label.fa{
+        font-size: 2rem;
+        color: #222;
+        cursor: pointer;
+        display: none;
+    }
+    /* styling for navbar ends here */
+    /* styling for sidebar starts here */
+    .sidebar{
+        position: fixed;
+        left: 0;
+        top: 60px;
+        width: 300px;
+        /* border-right: 1px solid #222; */
+        background: #fff;
+        height: 100vh;
+        padding: 8px;
+        /* font-weight: bold; */
+        overflow-y: scroll;
+        z-index: 999;
+        padding-bottom: 70px;
+    }
+    .sidebar::-webkit-scrollbar{
+        width: 5px;
+    }
+    .sidebar::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    .sidebar::-webkit-scrollbar-thumb{
+        background-color: rgb(233, 29, 69);
+    }
+    .sidebar h2{
+        margin-top: 1.5;
+        font-size: 2rem;
+        text-transform: uppercase;
+        color: rgb(233, 29, 69);
+        text-align: center;
+    }
+    .sidebar .search-bar{
+        margin: 5px 0;
+        padding: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    }
+    .sidebar .search-bar input{
+        width: 100%;
+        font-size: 1.5rem;
+    }
+    .search-bar .locate-icon{
+        width: 35px;
+        height: 35px;
+    }
+    .sidebar .category{
+        margin-top: 2rem;
+        padding: 5px;
+    }
+    .category .category-type{
+        display: flex;
+        flex-direction: column;
+    }
+    .category-type .btn{
+        margin: 8px 0;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 4px;
+        text-decoration: none;
+        color: rgb(233, 29, 69);
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+    }
+    .category-type .btn:hover,
+    .category-type .btn.active{
+        background: rgb(233, 29, 69);
+        color: #fff;
+    }
+    .category-type .btn img{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #fff;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        padding: 5px;
+        margin-right: 5px;
+    }
+    .disclaimer{
+        margin: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        background: lightpink;
+    }
+    .disclaimer p{
+        font-size: 1.2rem;
+    }
+    .disclaimer p.please{
+        margin: 10px 0px;
+        color: rgb(233, 29, 69);
+        font-weight: bold;
+    }
+    #side-menu{
+        position: fixed;
+        top: 80px;
+        left: 8px;
+        z-index: 1200;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        font-size: 2rem;
+        color: rgb(233, 29, 69);
+        background-color: #fff;
+        border: 1px solid #999;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        display: none;
+    }
+    /* styling for sidebar ends here */
+    /* styling for products section starts here */
+    .products{
+        padding: 20px;
+        padding-top: 70px;
+        padding-left: 320px;
+        background: #eee;
+        min-height: 100vh;
+    }
+    .products .heading{
+        color: rgb(233, 29, 69);
+        text-align: center;
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin-bottom: 10px;
+    }
+    .products .product-container{
+        display: flex;
+        flex-direction: column;
+    }
+    .product-container .product{
+        display: flex;
+        padding: 10px 1%;
+        margin-bottom: 10px;
+        background: #fff;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        min-height: 30vh;
+    }
+    .product h2{
+        margin-bottom: 5px;
+        color: rgb(233, 29, 69);
+        text-transform: capitalize;
+        font-size: 1.5rem;
+    }
+    .product h3{
+        margin-bottom: 2px;
+        color: rgb(233, 29, 69);
+        text-transform: capitalize;
+        font-size: 1.5rem;
+    }
+    .product .product-image{
+        height: 70%;
+        width: 100%;
+        flex: 20%;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .product .product-image img{
+        height: 150px;
+        /* width: 70%; */
+    }
+    .product .product-discription{
+        flex: 50%;
+        padding: 0 10px;
+    }
+    .product .product-discription p{
+        margin-bottom: 5px;
+        font-size: 1.2rem;
+        color: #222;
+        /* font-weight: bold; */
+    }
+    .product .product-discription p.date{
+        color: rgb(233, 29, 69);
+    }
+    .product .product-donor{
+        flex: 30%;
+        position: relative;
+        background-color: lightpink;
+        padding: 0 10px;
+        border-radius: 10px;
+    }
+    .product .product-donor p{
+        font-size: 1.3rem;
+        /* font-weight: bold; */
+    }
+    .product .product-donor p span{
+        padding-right: 10px;
+        color: rgb(233, 29, 69);
+    }
+    .product .product-donor .links{
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 40px;
+        background: rgb(233, 29, 69);
+        text-align: center;
+        padding-top: 5px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+    .product .product-donor .links span{
+        height: 30px;
+        width: 30px;
+        background: #fff;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 20px;
+        line-height: 30px;
+        margin-left: 20px;
+        color: rgb(233, 29, 69);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        cursor: pointer;
+    }
+    .product .product-donor .links span:hover{
+        color: #fff;
+        background-color: rgb(233, 29, 69);
+    }
+    /* styling for products section ends here */
+
+    /* media queries starts here */
+    /* media queries for header starts here */
+    @media (max-width:991px) {
+        header label.fa{
+            display: block;
+        }
+        header .navbar{
+            position: absolute;
+            top: 100%; left: 0;
+            width: 100%;
+            background: #fff;
+            padding: 1.5rem;
+            border-top: .1rem solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+            transform-origin: top;
+            transform: scaleY(0);
+            opacity: 0;
+        }
+        header .navbar a{
+            display: block;
+            margin: 1.1rem 0;
+            font-size: 2rem;
+        }
+        header input:checked ~ .navbar{
+            transform: scaleY(1);
+            opacity: 1;
+        }
+        header input:checked ~ label::before{
+            content: '\f00d';
+        }
+    }
+    /* media queries for header ends here */
+    /* media queries for side menu starts here */
+    @media(max-width:991px){
+        #side-menu{
+            display: inline-block;
+        }
+        #side-menu.fa-times{
+            background: rgb(233, 29, 69);
+            color: #fff;
+        }
+        .sidebar{
+            left: -300px;
+        }
+        .products{
+            padding-left: 20px;
+        }
+        .sidebar.active{
+            /* box-shadow: 0 0 0 100vw var(--dark-bg); */
+            left: 0;
+        }
+    }
+    /* media queries for side menu ends here */
+    /* media queries for products section starts here */
+    @media (max-width:650px) {
+        .product-container .product{
+            flex-direction: column;
+        }
+        .product .product-donor .links{
+            display: none;
+        }
+    }
+    /* media queries for products section ends here */
+    /* media queries ends here */
+</style>
+<body>
+    <!-- Header or Navbar starts here -->
+    <header>
+
+        <input type="checkbox" name="" id="menu-bar" class="menubar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+
+        <a href="#" class="logo"><img src="Logo.png"></a>
+
+        <nav class="navbar">
+            <a href="#home">Home</a>
+            <!-- <a href="#about">About</a> -->
+            <a href="">Donate</a>
+            <a href="#receive" class="active">Receive</a>
+            <!-- <a href="#quote">Today's Day</a> -->
+            <a href="">News</a>
+        </nav>
+
+        <div class="fixed">
+            <!-- <a href="#news"><span class="fa fa-newspaper-o"></span></a> -->
+            <a href="#"><span class="fa fa-user-circle"></span></a>
+        </div>
+
+    </header>
+    <!-- Header or Navbar ends here -->
+    <div id="side-menu" class="fa fa-bars"></div>
+    <!-- sidebar starts here -->
+    <div class="sidebar">
+        <h2 class="heading">Search For your Locality</h2>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Your or Nearby Pincode..." id="search-box">
+            <img src="locate.png" class="locate-icon">
+        </div>
+
+        <div class="category">
+            <h2 class="heading">Category</h2>
+            <div class="category-type">
+                <a href="#" class="btn active"> <img src="recall.png">all</a>
+                <a href="#" class="btn"> <img src="recbook.png">Books And Stationary</a>
+                <a href="#" class="btn"> <img src="reccloth.png">Clothes And Wearings</a>
+                <a href="#" class="btn"> <img src="recfood.png">Food And Groceries</a>
+                <a href="#" class="btn"> <img src="recmed.png">Medicines And Help</a>
+            </div>
+        </div>
+
+        <div class="disclaimer">
+            <h2 class="heading">Disclaimer</h2>
+            <p>
+                Here the items are donated by common people and these are only
+                for the needy ones so don't want to misuse these items... these 
+                are not for further selling and if you are caught then you may be
+                imprisoned...
+            </p>
+            <p class="please">Please! Show Humanity And Kindness...Don't Misuse The products</p>
+        </div>
+    </div>
+    <!-- sidebar ends here -->
+    <!-- Products section starts here -->
+    <div class="products">
+        <h1 class="heading">Products</h1>
+        <div class="product-container">
+            <div class="product book" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="rdsharma.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>R.D Sharma</h2>
+                    <h3>Class 11</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 23/11/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Amit kumar</p>
+                    <p><span class="fa fa-map"></span>831015</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product food" data-search="831002 831003 831004 831005">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="aata.webp" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Sehnai Fresh Atta</h2>
+                    <h3>food item</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 25/11/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 06/04/2022
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Rahul Kumar</p>
+                    <p><span class="fa fa-map"></span>831004</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product cloth" data-search="831015 831014 831013 831012">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="frock.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Cotton Frock</h2>
+                    <h3>Red and Black Colour</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 27/11/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Kriti kumari</p>
+                    <p><span class="fa fa-map"></span>831015</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product food" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="tel.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Raja Kachi Ghani</h2>
+                    <h3>Sarso tel</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 30/11/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 08/05/2022
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Deepak kumar</p>
+                    <p><span class="fa fa-map"></span>831015</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product medicine" data-search="211032 211033 211034 211035">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="paracetamol.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Paracetamol</h2>
+                    <h3>General Purpose Medicine</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 30/11/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 30/10/2024
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Medinova Medicals</p>
+                    <p><span class="fa fa-map"></span>211034</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product book" data-search="211034 211035 211036 211037">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="ikigai.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Ikigai</h2>
+                    <h3>Motivational Book</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 01/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Prem kumar</p>
+                    <p><span class="fa fa-map"></span>211035</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product medicine" data-search="211035 211036 211037 211038">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="dabur.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Bronchoil Syrup</h2>
+                    <h3>Sore Throat and Lungs Syrup</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 02/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 01/11/2025
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Indra Medical</p>
+                    <p><span class="fa fa-map"></span>211036</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product cloth" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="kambal.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>kambal</h2>
+                    <h3>woollen Clothes</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 05/21/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Amit kumar</p>
+                    <p><span class="fa fa-map"></span>831015</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product book" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="hcverma.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>H.C Verma</h2>
+                    <h3>Class 12</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 08/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Deepakkumar</p>
+                    <p><span class="fa fa-map"></span>831015</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product food" data-search="211034 211035 211036 211037">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="chawanprash.png" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Dabur Chawanprash</h2>
+                    <h3>Immunity Booster</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 10/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 10/11/2022
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Pratibha Genaral store</p>
+                    <p><span class="fa fa-map"></span>211036</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product cloth" data-search="211032 211033 211034 211035">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="sweater.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Sweater</h2>
+                    <h3>woollen</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 11/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>vikas kumar</p>
+                    <p><span class="fa fa-map"></span>211035</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product cloth" data-search="831004 831005 831006 831007">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="shoes.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Shoes</h2>
+                    <h3>Green and white</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 12/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Badal kumar</p>
+                    <p><span class="fa fa-map"></span>831006</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product medicine" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="lactogen.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>lactogen</h2>
+                    <h3>Part 1</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 12/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: 12/12/2022
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Medinova Medicals</p>
+                    <p><span class="fa fa-map"></span>831014</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product food" data-search="831005 831006 831007 831008">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="gobhi.webp" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Fresh gobhi</h2>
+                    <h3>Vegatables</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 17/03/2022
+                    </p>
+                    <p class="date">
+                        Expiry date: 20 days
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>Deepak kumar</p>
+                    <p><span class="fa fa-map"></span>831006</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="product book" data-search="831016 831015 831014 831013">
+                <div class="product-image">
+                    <h2>Product Image</h2>
+                    <img src="jee.jpg" alt="">
+                </div>
+                <div class="product-discription">
+                    <h2>Differential Calculus</h2>
+                    <h3>Competiotions Book</h3>
+                    <p>
+                        Lorem ipsum dolor sit amet consectetur adipisicing 
+                        elit. Error, voluptas accusantium. Temporibus numquam 
+                        quia ipsum inventore reprehenderit pariatur, sunt 
+                        suscipit.
+                    </p>
+                    <p class="date">
+                        Donated date: 15/12/2021
+                    </p>
+                    <p class="date">
+                        Expiry date: dd/mm/yyyy
+                    </p>
+                </div>
+                <div class="product-donor">
+                    <h2>Donor Details:</h2>
+                    <p><span class="fa fa-user"></span>vikas kumar</p>
+                    <p><span class="fa fa-map"></span>831014</p>
+                    <p><span class="fa fa-phone"></span>+91 1234567890</p>
+                    <div class="links">
+                        <span class="fa fa-heart-o"></span>
+                        <span class="fa fa-phone"></span>
+                        <span class="fa fa-comments"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Products section ends here -->
+    <script>
+        let menu = document.querySelector('#side-menu');
+        let sideBar = document.querySelector('.sidebar');
+        menu.onclick = () =>{
+            menu.classList.toggle('fa-times');
+            sideBar.classList.toggle('active');
+        };
+
+        let products = document.querySelectorAll('.product-container .product');
+
+        document.querySelector('#search-box').oninput = () =>{
+            var value = document.querySelector('#search-box').value.toLowerCase();
+            products.forEach(product => {
+                var dataSearch = product.getAttribute('data-search');
+                if(dataSearch.indexOf(value) > -1){
+                    product.style.display = 'flex';
+                }
+                else{
+                    product.style.display = 'none';
+                };
+            });
+        };
+    </script>
+</body>
+</html>

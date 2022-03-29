@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="landPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header or Navbar starts here -->
+    <header>
+
+        <input type="checkbox" name="" id="menu-bar" class="menubar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+
+        <a href="#" class="logo"><img src="Logo.png"></a>
+
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#donate">Donate</a>
+            <a href="#receive">Receive</a>
+            <a href="#quote">Today's Day</a>
+            <a href="#news">News</a>
+        </nav>
+
+        <div class="fixed">
+            <!-- <a href="#news"><span class="fa fa-newspaper-o"></span></a> -->
+            <a href="#"><span class="fa fa-user-circle"></span></a>
+        </div>
+
+    </header>
+    <!-- Header or Navbar ends here -->
+
+    <!-- Screen slider starts here -->
+    <div class="containerForSlide">
+
+        <div class="slide-container active">
+            <div class="slide">
+                <div class="content">
+                    <h3>1. Donate!</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Itaque et ex iusto quis cumque, quidem quo dicta, porro 
+                     voluptatem ut accusamus facilis earum molestiae maiores 
+                     quia, obcaecati ipsam dolor!</p>
+                     <a href="#" class="btn one">Donate</a>
+                </div>
+                <div class="image">
+                    <img src="Images/charity.png" alt="">
+                </div>
+            </div>
+        </div>
+        
+        <div class="slide-container">
+             <div class="slide">
+                 <div class="content">
+                     <h3>2. Receive!</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                     Itaque et ex iusto quis cumque, quidem quo dicta, porro 
+                     voluptatem ut accusamus facilis earum molestiae maiores 
+                     quia, obcaecati ipsam dolor!</p>
+                     <a href="#" class="btn two">Receive</a>
+                 </div>
+                 <div class="image">
+                     <img src="Images/receive.png" alt="">
+                 </div>
+             </div>
+         </div>
+ 
+         <div class="slide-container">
+             <div class="slide">
+                 <div class="content">
+                     <h3>3. News!</h3>
+                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Itaque et ex iusto quis cumque, quidem quo dicta, porro 
+                      voluptatem ut accusamus facilis earum molestiae maiores 
+                      quia, obcaecati ipsam dolor!</p>
+                      <a href="#" class="btn three">News</a>
+                 </div>
+                 <div class="image">
+                     <img src="Images/news.png" alt="">
+                 </div>
+             </div>
+         </div>
+ 
+         <div id="prev" onclick="prev()">&#10094;</div>
+         <div id="next" onclick="next()">&#10095;</div>
+ 
+    </div>
+    <!-- Screen slider ends here -->
+
+    <!-- Cards Section starts here -->
+    <div class="twoCard">
+        <div class="card donate" id="donate">
+            <div class="card-header">
+                <img src="Images/donCard.png" alt="Donate" class="profile-img">
+            </div>
+            
+            <div class="card-body">
+                <p class="content">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Itaque modi laborum et, asperiores iste quod beatae sequi. 
+                    Quaerat fuga quos distinctio repudiandae incidunt earum 
+                    debitis quae iusto. Dolor, atque ratione.
+                </p>
+
+                <a href="donatPage.html" class="donate">Donate</a>
+            </div>
+        </div>
+
+        <div class="card receive" id="receive">
+            <div class="card-header">
+                <img src="Images/recCard.png" alt="Receive" class="profile-img">
+            </div>
+            
+            <div class="card-body">
+                <p class="content">
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
+                    Itaque modi laborum et, asperiores iste quod beatae sequi. 
+                    Quaerat fuga quos distinctio repudiandae incidunt earum 
+                    debitis quae iusto. Dolor, atque ratione.
+                </p>
+
+                <a href="ReceivePage/receiveAll.html" class="receive">Receive</a>
+            </div>
+        </div>
+    </div>
+    <!-- Cards section ends here -->
+
+    <!-- News section starts here -->
+    <section class="news" id="news">
+        <div class="content">
+            <h3>its time to celebrate! the best <span>event organizers</span></h3>
+            <a href="#ConnectUs" class="btn">contact us</a>
+        </div>
+
+        <div class="swiper news-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="Images/clothDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Clothes Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Deepak Kumar</p>
+                            <p><i class="fa fa-calendar"></i>25-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831015</p>
+                            <p><i class="fa fa-phone"></i>1234567890</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/booksDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Books Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Deepak Kumar</p>
+                            <p><i class="fa fa-calendar"></i>20-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831015</p>
+                            <p><i class="fa fa-phone"></i>1234567890</p>
+                        </div> 
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/foodDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Food and Grocery Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Vikas Kumar</p>
+                            <p><i class="fa fa-calendar"></i>28-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831014</p>
+                            <p><i class="fa fa-phone"></i>6767676767</p>
+                        </div> 
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/animDonate.png" alt="">
+                    <div class="post">
+                        <h2>Animal Product Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Badal Kumar</p>
+                            <p><i class="fa fa-calendar"></i>31-01-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831015</p>
+                            <p><i class="fa fa-phone"></i>1234560987</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/othersDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Festive Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Amit Kumar</p>
+                            <p><i class="fa fa-calendar"></i>04-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831015</p>
+                            <p><i class="fa fa-phone"></i>0987654321</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/vaccineDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Vaccine Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>HillTop School</p>
+                            <p><i class="fa fa-calendar"></i>25-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831002</p>
+                            <p><i class="fa fa-phone"></i>1237689546</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/medicineDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Medical Equipments Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Vikas Kumar</p>
+                            <p><i class="fa fa-calendar"></i>28-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831014</p>
+                            <p><i class="fa fa-phone"></i>6767676767</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/bloodsDonate.jpg" alt="">
+                    <div class="post">
+                        <h2>Blood Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>Kendriya Vidyalaya</p>
+                            <p><i class="fa fa-calendar"></i>17-02-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831014</p>
+                            <p><i class="fa fa-phone"></i>9678543567</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <img src="Images/organDonate.png" alt="">
+                    <div class="post">
+                        <h2>Organ Donation</h2>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing
+                        elit. Aliquid perferendis reprehenderit sint alias 
+                        quae dicta iure fugiat illo eius provident.</p>
+                        <div class="poster">
+                            <h3>Provider Details :</h3>
+                            <p><i class="fa fa-user"></i>VIdya Bharati Chinmaya Vidyalaya</p>
+                            <p><i class="fa fa-calendar"></i>05-03-2022</p>
+                            <p><i class="fa fa-map-marker"></i>831002/p>
+                            <p><i class="fa fa-phone"></i>9856433789</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="NewsPage.html" class="news-button">Post Your Own News</a>
+    </section>
+    <!-- News section ends here -->
+    <!-- quotes sectuon starts here -->
+    <div class="quote-sec" id="quote">
+        <span class="fa fa-quote-left"></span>
+        <h1>Positive Vibes</h1>
+        <p>There are many ways to push for much-needed
+        reforms: One way is to make a donation. It 
+        doesn't matter much whether you contribute 
+        publicly or in a private way - either way is 
+        good. What matters is your true intention.
+        </p>
+    </div>
+
+    <div class="footer">
+        <div class="elements">
+            <div class="about" id="about">
+                <div class="logo"><img src="Logo.png"></div>
+                <p>We are only the helping hand with yours support. please 
+                make a donation and help life and peoples all around the
+                world our moto is make Life, Change Life...</p>
+                <div class="contact">
+                    <p><i class="fa fa-phone"></i>+91 1234567889</p>
+                    <p><i class="fa fa-map-marker"></i>Jamshedpur, Jharkhand, India</p>
+                    <p><i class="fa fa-envelope"></i>donatebvd@gmail.com</p>
+                </div>
+                <div class="social-icon">
+                    <i class="fa fa-facebook"></i>
+                    <i class="fa fa-twitter"></i>
+                    <i class="fa fa-instagram"></i>
+                    <i class="fa fa-linkedin"></i>
+                </div>
+            </div>
+            <div class="newsletter" id="ConnectUs">
+                <p class="heading">Connect With Us</p>
+                <form action="#">
+                    <p>Name: </p>
+                    <input type="text">
+                    <p>E-mail: </p>
+                    <input type="email">
+                    <p>Any Suggestions: </p>
+                    <textarea name="message" cols="50" rows="3"></textarea>
+                    <div class="send"><span>Send</span><i class="fa fa-send"></i></div>
+                </form>
+            </div>
+        </div>
+        <hr>
+        <div class="copyright">
+            All Rights Reserved | &copy; Team BVD
+        </div>
+    </div>
+    <!-- quotes section ends here -->
+
+
+
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // script for Screen slider starts here
+        let slides = document.querySelectorAll('.slide-container');
+        let index = 0;
+
+        function next(){
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }
+        function prev(){
+            slides[index].classList.remove('active');
+            index = (index - 1 + slides.length) % slides.length;
+            slides[index].classList.add('active');
+        }
+        // auto play
+        setInterval(next, 4000);
+        // script for Screen slider ends here
+        // scripts for news section starts here
+        var swiper = new Swiper(".news-slider", {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 2,
+          slideShadows: true,
+        },
+        loop:true,
+        autoplay:{
+            delay: 3000,
+            disableOnInteraction:false,
+        }
+      });
+        // scripts for news seciton ends here
+    </script>
+</body>
+</html>

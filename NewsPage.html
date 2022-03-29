@@ -1,0 +1,116 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>News Form</title>
+    <link rel="stylesheet" href="NewsPage.css">
+</head>
+<body>
+     <!-- Header or Navbar starts here -->
+     <header>
+
+        <input type="checkbox" name="" id="menu-bar" class="menubar">
+        <label for="menu-bar" class="fa fa-bars"></label>
+
+        <a href="#" class="logo"><img src="Logo.png"></a>
+
+        <nav class="navbar">
+            <a href="landingPage.html">Home</a>
+            <!-- <a href="#about">About</a> -->
+            <a href="donatPage.html">Donate</a>
+            <a href="ReceivePage/receiveAll.html">Receive</a>
+            <!-- <a href="#quote">Today's Day</a> -->
+            <a href="NewsPage.html" class="active">News</a>
+        </nav>
+
+        <div class="fixed">
+            <!-- <a href="#news"><span class="fa fa-newspaper-o"></span></a> -->
+            <a href="#"><span class="fa fa-user-circle"></span></a>
+        </div>
+
+    </header>
+    <!-- Header or Navbar ends here -->
+    <form class="my-form">
+        <div class="container">
+          <h1 style="text-align:center;">Feed News</h1>
+          <ul>
+            <li>
+              <select>
+                <option selected disabled>-- choose an option --</option>
+                <option>Notice</option>
+                <option>Medical</option>
+                <option>Books</option>  
+                <option>Foods</option> 
+                <option>Others</option>    
+              </select>
+            </li>
+            <li>
+              <div class="grid grid-2">
+                <input type="text" placeholder="Name" required>  
+                <input type="text" placeholder="Surname" required>
+              </div>
+            </li>
+            <li>
+              <div class="grid grid-2">
+                <input type="email" placeholder="Email" required>  
+                <input type="tel" placeholder="Phone" required>
+              </div>
+            </li> 
+            <li>
+                <div class="grid grid">
+                  <input type="Address" placeholder="Address" required>  
+                </div>
+              </li>
+            <li>
+                <div class="grid grid">
+                  <input type="Pincode" placeholder="Pincode" required>  
+                </div>
+            </li>
+            <li>
+                <div class="grid grid">
+                  <input type="file" placeholder="Uplaod Photo" required>  
+                </div>
+              </li>
+            <li>
+              <textarea placeholder="Message In 30-50 Words"></textarea>
+            </li>   
+            <li>
+              <input type="checkbox" id="terms">
+              <label for="terms">I have read and agreed with <a href="">the terms and conditions.</a></label>
+            </li>  
+            <li>
+              <div class="grid grid-3">
+                <div class="required-msg">REQUIRED FIELDS</div>
+                <button class="btn-grid" type="submit" disabled>
+                  <span class="back">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/email-icon.svg" alt="">
+                  </span>
+                  <span class="front">SUBMIT</span>
+                </button>
+                <button class="btn-grid" type="reset" disabled>
+                  <span class="back">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/162656/eraser-icon.svg" alt="">
+                  </span>
+                  <span class="front">RESET</span>
+                </button> 
+              </div>
+            </li>    
+          </ul>
+        </div>
+    </form>
+
+    <footer>    
+    </footer>
+
+<script>
+   const checkbox = document.querySelector('.my-form input[type="checkbox"]');
+   const btns = document.querySelectorAll(".my-form button");
+
+   checkbox.addEventListener("change", function() {
+   const checked = this.checked;
+   for (const btn of btns) {
+     checked ? (btn.disabled = false) : (btn.disabled = true);
+   }
+  });
+</script>

@@ -1,0 +1,603 @@
+/* impoting google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alata&family=Cookie&family=Flamenco&family=League+Spartan:wght@200&family=Lobster&family=Merriweather:ital,wght@1,300&family=Montserrat&family=Niconne&family=Open+Sans&family=Overpass:wght@100&family=PT+Sans&family=PT+Sans+Narrow&family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+}
+html{
+    font-size: 75%;
+    overflow-x: hidden;
+}
+/* styling for header starts here */
+header{
+    width: 100%;
+    height: 50.2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0;
+    z-index: 1000;
+    padding: 2.5rem .8rem;
+    /* margin-bottom: 10px; */
+    background: #fff;
+    /* font-weight: bold; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .19);
+}
+header .logo{
+    font-size: 2.5rem;
+    color: #222;
+}
+header .logo img{
+    width: 100px;
+    height: 70px;
+    padding-top: 12px;
+}
+header .navbar a{
+    font-size: 1.5rem;
+    padding: .4rem .5rem;
+    border-radius: .5rem;
+    color: #222;
+    position: relative;
+}
+header .navbar a::after{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: .3s;
+    background-color: #222;
+}
+header .navbar a.active::after,
+header .navbar a:hover::after{
+    width: 100%;
+}
+header .fixed a{
+    font-size: 1.7rem;
+    margin-left: 1rem;
+    padding: .8rem .8rem;
+    border-radius: 50%;
+    color: #222;
+    background: #fff;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                10px 10px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+header .fixed a:hover{
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5),
+                10px 10px 15px rgba(0, 0, 0, 0.5),
+                inset -10px -10px 15px rgba(255, 255, 255, 0.5),
+                inset 10px 10px 15px rgba(0, 0, 0, 0.3);
+}  
+header input.menubar{
+    display: none;
+}
+header label.fa{
+    font-size: 2rem;
+    color: #222;
+    cursor: pointer;
+    display: none;
+}
+/* styling for header ends here */
+
+/* styling for Screen slider starts here */
+.containerForSlide{
+    position: relative;
+    margin: 10px;
+    margin-top: 80px;
+    border-radius: 30px;
+    box-shadow:0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.containerForSlide .slide-container .slide{
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 5px 10%;
+    padding-bottom: 5px;
+     /* 70px */
+    border-radius: 30px;
+}
+.containerForSlide .slide-container .slide .content{
+    flex: 1 1 550px;
+    animation: slideContent .4s linear .6s backwards;
+}
+@keyframes slideContent {
+    0%{
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+}
+.containerForSlide .slide-container .slide .image{
+    flex: 1 1 350px;
+}
+.containerForSlide .slide-container .slide .image img{
+    width: 100%;
+    animation: slideImage .4s linear .6s backwards;
+}
+@keyframes slideImage {
+    0%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+.containerForSlide .slide-container .slide .content h3{
+    font-size: 30px;
+    color: #333;
+}
+.containerForSlide .slide-container .slide .content p{
+    font-size: 20px;
+    color: #666;
+    padding: 10px 0;
+}
+.containerForSlide .slide-container .slide .content .btn{
+    margin-top: 10px;
+    display: inline-block;
+    color: #333;
+    font-size: 25px;
+    padding: 9px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.containerForSlide .slide-container .slide .content .one{
+    background: #68e18c;
+}
+.containerForSlide .slide-container .slide .content .two{
+    background: #ff725e;
+}
+.containerForSlide .slide-container .slide .content .three{
+    background: #407bff;
+}
+.containerForSlide .slide-container{
+    display: none;
+}
+.containerForSlide .slide-container.active{
+    display: block;
+}
+.containerForSlide .slide-container:nth-child(1) .slide{
+    background: linear-gradient(90deg, #f9f9f9 70%, #68e18c 30.1%);
+}
+.containerForSlide .slide-container:nth-child(2) .slide{
+    background: linear-gradient(90deg, #f9f9f9 70%, #ff725e 30.1%);
+}
+.containerForSlide .slide-container:nth-child(3) .slide{
+    background: linear-gradient(90deg, #f9f9f9 70%, #407bff 30.1%);
+}
+.containerForSlide #prev,
+.containerForSlide #next{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    background: #333;
+    height: 50px;
+    width: 40px;
+    line-height: 50px;
+    font-size: 27px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bolder;
+}
+.containerForSlide #prev:hover,
+.containerForSlide #next:hover{
+    background: #666;
+}
+.containerForSlide #prev{
+    left: 20px;
+}
+.containerForSlide #next{
+    right: 20px;
+}
+/* styling for Screen slider ends here */
+/* styling for cards starts here */
+.twoCard{
+    margin: 6rem 8% .5rem 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.twoCard .card{
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, .14);
+    background: #fff;
+    margin: 20px;
+}
+.twoCard .card.donate{
+    background: linear-gradient(palegreen, white);
+}
+.twoCard .card.receive{
+    background: linear-gradient(lightsalmon,white);
+}
+.twoCard .card .card-header{
+    position: relative;
+    width: 100%;
+}
+.twoCard .card .card-header .profile-img{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2); 
+    background: #fff; 
+    padding: 5px; 
+}
+.twoCard .card.donate .card-header .profile-img{
+    border: 6px solid ;
+    color: mediumseagreen;
+}
+.twoCard .card.receive .card-header .profile-img{
+    border: 6px solid crimson;
+}
+.twoCard .card .card-body {
+    padding: 50px 0px 10px 0px;
+}
+.twoCard .card .card-body p{
+    text-align: justify;
+    /* font-weight: bold; */
+    font-size: 20px;
+    margin-bottom: 25px;
+}
+.twoCard .card .card-body a.donate{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background: linear-gradient(mediumspringgreen,seagreen);
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.twoCard .card .card-body a.receive{
+    padding: 10px;
+    font-weight: bold;
+    font-size: 20px;
+    background: linear-gradient(coral,crimson);
+    border-radius: 10px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* styling for cards ends here */
+/* styling for news section starts here */
+section{
+    padding: 1rem 10%;
+    background: #eee;
+}
+.news .content{
+    text-align: center;
+    padding-top: .5rem;
+    margin: 1rem auto;
+    max-width: 70rem;
+}
+.news .content h3{
+    color: #222;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+.news .content h3 span{
+    color: #3867d6;
+    text-transform: uppercase;
+}
+.news .content .btn{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.5rem;
+    border-radius: .5rem;
+    background: #666;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+.news .content .btn:hover{
+    background-color: #3867d6;
+}
+.news .news-slider .swiper-slide{
+    overflow: hidden;
+    border-radius: .5rem;
+    height: 460px;
+    width: 330px;
+}
+.news .news-slider .swiper-slide img{
+    height: 40%;
+    width: 100%;
+    /* object-fit: cover; */
+}
+.news .news-slider .swiper-slide .post{
+    margin-top: 0;
+    padding: 8px;
+    height: 60%;
+    width: 100%;
+    background: #fff;
+}
+.news .news-slider .swiper-slide .post h2{
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 7px;
+    color: #3867d6;
+}
+.news .news-slider .swiper-slide .post p{
+    font-size: 15px; 
+    color: #222;
+}
+.news .news-slider .swiper-slide .post .poster{
+    margin-top: 10px;
+    padding: 5px;
+    padding-left: 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #aec3f3 ;
+}
+.news .news-slider .swiper-slide .post .poster h3{
+    color: #3867d6;
+    padding-bottom: 2px;
+    font-size: 15px;
+    /* font-weight: bold; */
+}
+.news .news-slider .swiper-slide .post .poster p{
+    font-size: 13px;
+    font-weight: 500;
+}
+.news .news-slider .swiper-slide .post .poster p i{
+    margin-right: 10px;
+}
+.news-button{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: .8rem 3rem;
+    font-size: 1.7rem;
+    border-radius: .5rem;
+    background: #3867d6;
+    color: #222;
+    cursor: pointer;
+    font-weight: 600;
+}
+/* styling for news section ends here */
+/* styling for quote section strats here */
+.quote-sec{
+    position: relative;
+    background: url(Images/dayBack1.jpg);
+    min-height: 50vh;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: 5rem 5%;
+    text-align: center;
+    opacity: .9;
+    color: #fff;
+
+}
+.quote-sec span{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    font-size: 15rem;
+    color: #333;
+    z-index: -1;
+    opacity: .8;
+}
+.quote-sec h1{
+    font-size: 5rem;
+}
+.quote-sec p{
+    padding: 2.5rem;
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+/* styling for quote section ends here */
+
+/* styling for footer section starts here */
+.footer{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.footer .elements{
+    display: flex;
+    margin: 1.1rem;
+}
+.footer .elements .about{
+    flex: 50%;
+    padding: 1.1rem;
+}
+.footer .elements .about .logo{
+    font-size: 3rem;
+    padding-bottom: 1.2rem;
+    font-weight: bold;
+}
+.footer .elements .about .logo img{
+    width: 200px;
+    height: 120px;
+}
+.footer .elements .about p{
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+}
+.footer .elements .about .contact{
+    font-size: 1.5rem;
+    padding-bottom: .5rem;
+}
+.footer .elements .about .contact p{
+    padding-left: 1.5rem;
+}
+.footer .elements .about .contact p i{
+    padding-right: 1.5rem;
+}
+.footer .elements .about .social-icon i{
+    height: 40px; width: 40px;
+    margin: .5rem;
+    margin-top: 2rem;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 40px;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, .2);
+    font-size: 2rem;
+    cursor: pointer;
+}
+.footer .elements .about .social-icon i:hover{
+    background: #222;
+    color: #fff;
+}
+.footer .elements .newsletter{
+    flex: 50%;
+    padding: 1.2rem;
+}
+.footer .elements .newsletter p.heading{
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.footer .elements .newsletter form{
+    background: url(Images/map.png);
+    background-size: cover;
+    background-position: center;
+    margin-top: 1.1rem;
+    padding: 1.2rem;
+    width: 100%;
+    box-shadow: 0 3px 30px rgba(0, 0, 0, .19);
+    border-radius: 20px;
+}
+.footer .elements .newsletter form p{
+    font-size: 1.5rem;
+    padding: .5rem;
+    font-weight: bold;
+}
+.footer .elements .newsletter form input,
+.footer .elements .newsletter form textarea{
+    font-size: 1.5rem;
+    padding-left: .7rem;
+    width: 100%;
+    border-bottom: 1px solid #333;
+    background-color: transparent;
+}
+.footer .elements .newsletter .send{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+    padding: .5rem;
+    color: #fff;
+    background: #222;
+    font-size: 1.5rem;
+    width: 25%;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+}
+.footer .elements .newsletter .send span{
+    margin-right: 1.2rem;
+    font-weight: bold;
+}
+.footer .copyright{
+    border-top: 2px solid #222;
+    padding: 1rem;
+    font-size: 2rem;
+    text-align: center;
+}
+/* styling for footer section ends here */
+
+/* media queries starts here */
+@media (max-width:1200px) {
+    html{
+        font-size: 62.5%;
+        overflow-x: hidden;
+    } 
+}
+/* media queries for header starts here */
+@media (max-width:991px) {
+    header label.fa{
+        display: block;
+    }
+    header .navbar{
+        position: absolute;
+        top: 100%; left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1.5rem;
+        border-top: .1rem solid rgba(0, 0, 0, 0.1);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    header .navbar a{
+        display: block;
+        margin: 1.1rem 0;
+        font-size: 2rem;
+    }
+    header input:checked ~ .navbar{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+    header input:checked ~ label::before{
+        content: '\f00d';
+    }
+}
+/* media queries for header ends here */
+/* media queries for Screen slider starts here */
+/* @media (max-width:1115px){
+    .slide{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+} */
+@media (max-width:500px){
+    .containerForSlide #prev{
+        left: 0px;
+        top: 60%;
+    }
+    .containerForSlide #next{
+        right: 0px;
+        top: 60%;
+    }
+}
+/* media queries for Screen slider starts here */
+/* media queries for card starts here */
+@media (max-width:650px){
+    .twoCard{
+        flex-direction: column;
+    }
+    .twoCard .card.donate{
+        margin-bottom: 8rem;
+    }
+    /* .twoCard .card{
+        margin-bottom: 50px;
+    } */
+}
+/* media queries for card ends here */
+/* media queries for news section starts here  */
+@media (max-width:750px){
+    section{
+        padding: 1rem 5%;
+    }
+    .news .news-slider .swiper-slide{
+        height: 500px;
+        width: 300px;
+    }
+}
+/* media queries for news section ends here  */
+/* media queries for footer strats here */
+@media (max-width:750px) {
+    .footer .elements{
+        flex-direction: column;
+    }
+}
+/* media queries for footer strats here */
+
+
+
+
